@@ -1,16 +1,15 @@
 import React from "react";
-import { render } from "react-dom";
-import ListItem from "./ListItem";
+import Menu from "./js/Menu";
+import Content from "./js/Content";
+import Sidebar from "./js/Sidebar";
+import "./css/style.css";
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-      <h1 id="something-important">List</h1>
-      <ListItem name="List Item 1" />
-      <ListItem name="List Item 2" />
-      <ListItem name="List Item 3" />
+    <div className="wrapper">
+      <Menu />
+      <Content />
+      <Sidebar />
     </div>
   );
-};
-
-render(<App />, document.getElementById("root"));
+}
