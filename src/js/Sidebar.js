@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({ emoji, meaning }) {
+  const textInputRef = useRef(null);
+  const [copyState, setCopyState] = useState("Copy");
+  function copyHandler() {
+    textInputRef.current.select();
+    document.execCommand("copy");
+    // e.target.focus();
+    setCopyState(() => "Copied");
+    setTimeout(() => {
+      setCopyState(() => "Copy");
+    }, 1000);
+  }
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -9,19 +20,20 @@ export default function Sidebar() {
           role="img"
           aria-label="search-emoji"
         >
-          😀
+          {emoji}
         </span>
-        <span className="sidebar-header__title">Grinning Face</span>
+        <span className="sidebar-header__title">{meaning[0]}</span>
       </div>
-      <div className="sidebar-emoji-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quam
-        minima incidunt repellat porro veniam facilis maxime, ipsum quibusdam
-        inventore obcaecati esse architecto laboriosam sunt at, adipisci sequi
-        distinctio voluptatibus.
-      </div>
+      <div className="sidebar-emoji-description">{meaning[1]}</div>
       <div className="sidebar-emoji-copy">
-        <input type="text" name="emoji" value="😀" readOnly />
-        <button>Copy</button>
+        <input
+          ref={textInputRef}
+          type="text"
+          name="emoji"
+          value={emoji}
+          readOnly
+        />
+        <button onClick={() => copyHandler()}>{copyState}</button>
       </div>
     </div>
   );

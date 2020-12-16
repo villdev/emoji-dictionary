@@ -5,7 +5,19 @@ import linkedin from "../images/linkedin.svg";
 import github from "../images/github.svg";
 import code from "../images/code.svg";
 
-export default function Menu() {
+export default function Menu({ type, setType, setEmoji, database }) {
+  function getClass(emojiType) {
+    if (type === emojiType) {
+      return "category category-active";
+    } else {
+      return "category";
+    }
+  }
+  function menuClickHandler(emojiType) {
+    setType(emojiType);
+    setEmoji(Object.keys(database[emojiType])[0]);
+  }
+
   return (
     <div className="menu">
       <div className="menu-header">
@@ -15,7 +27,27 @@ export default function Menu() {
         <span className="logo-text">Emoji Dictionary</span>
       </div>
       <div className="menu-content">
-        <div className="category category-active">
+        {Object.keys(database).map((emojiType) => {
+          return (
+            <div
+              onClick={() => menuClickHandler(emojiType)}
+              className={getClass(emojiType)}
+              key={emojiType}
+              role={emojiType}
+            >
+              <span
+                className="category-icon"
+                role="img"
+                aria-label="smiley category emoji"
+              >
+                {Object.keys(database[emojiType])[0]}
+              </span>
+              <span className="category-name">{emojiType}</span>
+            </div>
+          );
+        })}
+
+        {/* <div className="category category-active">
           <span
             className="category-icon"
             role="img"
@@ -54,7 +86,7 @@ export default function Menu() {
             🍀
           </span>
           <span className="category-name">Nature</span>
-        </div>
+        </div> */}
       </div>
       <div className="footer">
         <div className="by">
