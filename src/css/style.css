@@ -335,6 +335,7 @@ body {
   border-radius: 12px;
   /* height: 100px; */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
@@ -620,5 +621,11 @@ body {
 @media (max-width: 575.98px) {
   .category {
     width: 70px;
+  }
+  .meaning {
+    padding: 8px;
+  }
+  .meaning span {
+    height: calc(var(--block-height) * 0.5);
   }
 }
