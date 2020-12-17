@@ -1,9 +1,10 @@
 import React from "react";
+import Footer from "./Footer";
 import logo from "../images/book.svg";
-import twitter from "../images/twitter.svg";
-import linkedin from "../images/linkedin.svg";
-import github from "../images/github.svg";
-import code from "../images/code.svg";
+// import twitter from "../images/twitter.svg";
+// import linkedin from "../images/linkedin.svg";
+// import github from "../images/github.svg";
+// import code from "../images/code.svg";
 
 export default function Menu({ type, setType, setEmoji, database }) {
   function getClass(emojiType) {
@@ -88,7 +89,7 @@ export default function Menu({ type, setType, setEmoji, database }) {
           <span className="category-name">Nature</span>
         </div> */}
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <div className="by">
           <img src={code} alt="code icon" /> by{" "}
           <a href="https://shobhitk.netlify.app/">SK</a>
@@ -104,7 +105,8 @@ export default function Menu({ type, setType, setEmoji, database }) {
             <img src={github} alt="github icon" />
           </a>
         </div>
-      </div>
+      </div> */}
+      <Footer flag={"desk"} />
     </div>
   );
 }

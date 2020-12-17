@@ -54,9 +54,9 @@ const database = {
       "Neutral Face",
       "A yellow face with simple, open eyes and a flat, closed mouth. Intended to depict a neutral sentiment but often used to convey mild irritation and concern or a deadpan sense of humor.",
     ],
-    "😑": [
-      "Expressionless Face",
-      "A yellow face with flat, closed eyes and mouth. May convey a sense of frustration or annoyance more intense than suggested by 😐 Neutral Face, as if taking a moment to collect itself.",
+    "😴": [
+      "Sleeping Face",
+      "A yellow face with eyes closed and mouth letting out three, cartoon-styled Zzz’s overhead to indicate it's sound asleep. The Zzz’s appear blue or purple across most platforms. May also represent boredom (slang, snooze)",
     ],
     "😶": [
       "Face Without Mouth",
@@ -158,7 +158,7 @@ const database = {
     ],
     "🦄": [
       "Unicorn",
-      "The face of a unicorn, a mythical creature in the form of a white horse with a single, long horn on its forehead. Generally depicted as a white horse head facing left with a pink or purple mane and a yellow or rainbow-colored horn. In addition to the mythical unicorn, may be used to convey whimsy, fantasy, uniqueness, specialness, peace, and love. Often used for various content related to the LGBTQ community, thanks in part to its rainbow colors on many platforms. Also often used in association with “unicorn” startups. Sometimes used as a rainbow or holographic accent color.",
+      "The face of a unicorn, a mythical creature in the form of a white horse with a single, long horn on its forehead. In addition to the mythical unicorn, may be used to convey whimsy, fantasy, uniqueness, specialness, peace, and love. Often used for various content related to the LGBTQ community. Also often used in association with “unicorn” startups.",
     ],
     "🐻": [
       "Bear",

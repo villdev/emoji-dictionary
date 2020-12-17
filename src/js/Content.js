@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer";
 
 export default function Content({
   type,
@@ -30,7 +31,7 @@ export default function Content({
     });
   }
 
-  //! ---------------improve search function---------------------------------------------------------------
+  //! improve search function---------------------------------------------------------------
   function emojiSearch() {
     emojiCategories.forEach((category) => {
       const emojis = Object.keys(database[category]);
@@ -53,10 +54,10 @@ export default function Content({
           onChange={emojiInputHandler}
           type="text"
           name="emoji"
-          placeholder="Enter emoji or text..."
+          placeholder="Enter emoji..."
         />
         <button onClick={() => emojiSearch()} type="submit">
-          Search Emoji
+          Search
         </button>
       </div>
       <div className="meaning">
@@ -88,6 +89,7 @@ export default function Content({
           </div>
         ))} */}
       </div>
+      <Footer flag={"mobile"} />
     </div>
   );
 }
