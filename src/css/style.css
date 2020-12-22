@@ -624,6 +624,7 @@ body {
   }
   .meaning {
     padding: 8px;
+    flex-direction: column;
   }
   .meaning span {
     height: calc(var(--block-height) * 0.5);

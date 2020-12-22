@@ -21,11 +21,18 @@ export default function Content({
     //   setEmoji(e.target.value);
     //   setMeaning(database[type][e.target.value]);
     // }
+    let temp = e.target.value.trim();
     setQuery(e.target.value);
+    setQuery(temp);
+    // console.log(e.target.value);
+    // console.log(e.target.value.trim());
     emojiCategories.forEach((category) => {
-      if (e.target.value in database[category]) {
-        setEmoji(e.target.value);
-        setMeaning(database[category][e.target.value]);
+      // if (e.target.value in database[category]) {
+      if (temp in database[category]) {
+        // setEmoji(e.target.value);
+        setEmoji(temp);
+        // setMeaning(database[category][e.target.value]);
+        setMeaning(database[category][temp]);
         setType(category);
       }
     });
@@ -33,17 +40,19 @@ export default function Content({
 
   //! improve search function---------------------------------------------------------------
   function emojiSearch() {
-    emojiCategories.forEach((category) => {
-      const emojis = Object.keys(database[category]);
-      emojis.forEach((emoji) => {
-        // const splitStr = database[category][emoji][0].toLowerCase().split(" ");
-        if (database[category][emoji][0].toLowerCase().includes(query)) {
-          setEmoji(emoji);
-          setType(category);
-          setMeaning(database[category][emoji]);
-        }
+    if (query !== "") {
+      emojiCategories.forEach((category) => {
+        const emojis = Object.keys(database[category]);
+        emojis.forEach((emoji) => {
+          // const splitStr = database[category][emoji][0].toLowerCase().split(" ");
+          if (database[category][emoji][0].toLowerCase().includes(query)) {
+            setEmoji(emoji);
+            setType(category);
+            setMeaning(database[category][emoji]);
+          }
+        });
       });
-    });
+    }
   }
 
   return (
@@ -61,11 +70,20 @@ export default function Content({
         </button>
       </div>
       <div className="meaning">
-        Meaning(
-        <span className="query" role="img" aria-label="searched emoji or query">
-          {emoji}
+        <span className="row">
+          Meaning(
+          <span
+            className="query"
+            role="img"
+            aria-label="searched emoji or query"
+          >
+            {emoji}
+          </span>
+          ):&nbsp;
         </span>
-        ):&nbsp;<span className="result">{meaning[0]}</span>
+        <span className="row">
+          <span className="result">{meaning[0]}</span>
+        </span>
       </div>
       <div className="category-emojis">
         {/* <div className="emoji"><span role="img" aria-label="emoji">😀</span></div> */}
